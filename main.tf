@@ -122,3 +122,16 @@ resource "aws_security_group_rule" "outbound_all" {
   ]
   security_group_id = aws_security_group.orange-sg.id
 }
+
+resource "aws_instance" "orange" {
+  ami                     = "ami-0ffac3e16de16665e"
+  instance_type           = "t2.micro"
+  disable_api_termination = false
+  key_name                = "orange"
+  vpc_security_group_ids  = [aws_security_group.orange-sg.id]
+  subnet_id               = aws_subnet.pub-1a.id
+  tags = {
+    Name = "orange"
+  }
+}
+
