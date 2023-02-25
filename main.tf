@@ -130,8 +130,16 @@ resource "aws_instance" "orange" {
   key_name                = "orange"
   vpc_security_group_ids  = [aws_security_group.orange-sg.id]
   subnet_id               = aws_subnet.pub-1a.id
+  associate_public_ip_address = "true"
   tags = {
     Name = "orange"
   }
+}
+
+# TerraformでEC2インスタンスを構築してみた。（Terraform, AWS, EC2）
+# https://qiita.com/takahashi-kazuki/items/c2fe3d70e3a9490adf64
+
+output "public id of orange" {
+  value = "${aws_instance.orange.public_ip}"
 }
 
