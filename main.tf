@@ -139,7 +139,7 @@ resource "aws_instance" "orange" {
 # TerraformでEC2インスタンスを構築してみた。（Terraform, AWS, EC2）
 # https://qiita.com/takahashi-kazuki/items/c2fe3d70e3a9490adf64
 
-output "public id of orange" {
+output "public_id_of_orange" {
   value = "${aws_instance.orange.public_ip}"
 }
 
