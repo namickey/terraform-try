@@ -1,3 +1,7 @@
+
+# Terraform Cloudの始め方
+# https://qiita.com/boccham/items/190f04bfbc9ffc0b5baf
+
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
@@ -13,6 +17,9 @@ resource "aws_vpc" "orange" {
     Name = "orange-vpc"
   }
 }
+
+# Terraformで構築するAWS
+# https://y-ohgi.com/introduction-terraform/handson/vpc/
 
 resource "aws_subnet" "public_1a" {
   vpc_id = "${aws_vpc.orange.id}"
@@ -31,4 +38,7 @@ resource "aws_subnet" "public_1c" {
     Name = "orange-subpub-1c"
   }
 }
+
+# 【Terraform】AWS上にEC2インスタンス作成(入門)
+# https://zenn.dev/supersatton/articles/c87853cc5a3dbd
 
