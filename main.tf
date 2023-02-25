@@ -92,12 +92,12 @@ resource "aws_route_table_association" "pub-1c" {
 # terraform構築手順〜EC2編〜
 # https://colabmix.co.jp/tech-blog/terraform-ec2/
 
-resource "aws_security_group" "sg-orange" {
-  name        = "sg-orange"
-  description = "sg-orange"
+resource "aws_security_group" "orange-sg" {
+  name        = "orange-sg"
+  description = "orange-sg"
   vpc_id      = aws_vpc.orange.id
   tags = {
-    Name = "sg-orange"
+    Name = "orange-sg"
   }
 }
 
@@ -109,7 +109,7 @@ resource "aws_security_group_rule" "inbound_ssh" {
   cidr_blocks = [
     "0.0.0.0/0",
   ]
-  security_group_id = aws_security_group.sg-orange.id
+  security_group_id = aws_security_group.orange-sg.id
 }
 
 resource "aws_security_group_rule" "outbound_all" {
@@ -120,5 +120,5 @@ resource "aws_security_group_rule" "outbound_all" {
   cidr_blocks = [
     "0.0.0.0/0",
   ]
-  security_group_id = aws_security_group.sg-orange.id
+  security_group_id = aws_security_group.orange-sg.id
 }
