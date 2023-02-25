@@ -89,6 +89,36 @@ resource "aws_route_table_association" "pub-1c" {
   route_table_id = "${aws_route_table.orange.id}"
 }
 
-# 【Terraform】AWS上にEC2インスタンス作成(入門)
-# https://zenn.dev/supersatton/articles/c87853cc5a3dbd
+# terraform構築手順〜EC2編〜
+# https://colabmix.co.jp/tech-blog/terraform-ec2/
 
+resource "aws_security_group" "sg-orange" {
+  name        = "sg-orange"
+  description = "sg-orange"
+  vpc_id      = aws_vpc.orange.id
+  tags = {
+    Name = "sg-orange"
+  }
+}
+
+resource "aws_security_group_rule" "inbound_ssh" {
+  type      = "ingress"
+  from_port = 22
+  to_port   = 22
+  protocol  = "tcp"
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
+  security_group_id = aws_security_group.sg-orange.id
+}
+
+resource "aws_security_group_rule" "outbound_all" {
+  type      = "egress"
+  from_port = 0
+  to_port   = 0
+  protocol  = "-1"
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
+  security_group_id = aws_security_group.sg-orange.id
+}
