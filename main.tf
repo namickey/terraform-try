@@ -132,10 +132,8 @@ resource "aws_instance" "orange" {
   subnet_id               = aws_subnet.pub-1a.id
   associate_public_ip_address = "true"
   
-  user_data = <<EOF
-  #!/bin/bash
-  nvm install node
-  EOF
+  user_data = file("./setup.sh")
+  
   tags = {
     Name = "orange"
   }
