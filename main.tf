@@ -131,6 +131,11 @@ resource "aws_instance" "orange" {
   vpc_security_group_ids  = [aws_security_group.orange-sg.id]
   subnet_id               = aws_subnet.pub-1a.id
   associate_public_ip_address = "true"
+  
+  user_data = <<EOF
+  #!/bin/bash
+  nvm install node
+  EOF
   tags = {
     Name = "orange"
   }
