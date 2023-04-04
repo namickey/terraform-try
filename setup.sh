@@ -1,18 +1,21 @@
 #!/bin/bash
 
-echo hello
+echo hello2
 
-sudo -u ec2-user cd
+su - ec2-user
 
-sudo -u ec2-user curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+sudo yum -y install git
 
-sudo -u ec2-user . ~/.nvm/nvm.sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
-sudo -u ec2-user nvm install 16
+. ~/.nvm/nvm.sh
 
-sudo -u ec2-user yum install git
+nvm install 16
 
-sudo -u ec2-user git clone https://github.com/namickey/nuxt-try.git
+git clone https://github.com/namickey/nuxt-try.git
 
+cd nuxt-try
 
+npm install -y
 
+npm run dev &
