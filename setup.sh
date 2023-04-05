@@ -2,8 +2,8 @@
 
 echo hello2
 
-echo 'su - ec2-user'
-su - ec2-user
+echo 'su ec2-user'
+su ec2-user
 
 echo 'whoami'
 whoami
@@ -29,8 +29,8 @@ ls -la
 echo 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-echo 'su - ec2-user'
-su - ec2-user
+echo 'ls -la'
+ls -la
 
 echo 'whoami'
 whoami
@@ -46,6 +46,6 @@ nvm install --lts
 
 cd /home/ec2-user/nuxt-try
 
-npm install -y
+npm install -Y
 
 npm run dev &
