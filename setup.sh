@@ -26,5 +26,5 @@ sudo -u ec2-user git clone https://github.com/namickey/nuxt-try.git
 echo 'ls -la'
 ls -la
 
-sudo -u ec2-user /home/ec2-user/nuxt-try/setup-ec2.sh
+sudo -u ec2-user /bin/bash /home/ec2-user/nuxt-try/setup-ec2.sh
 
