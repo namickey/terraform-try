@@ -135,7 +135,7 @@ resource "aws_security_group_rule" "outbound_all" {
 }
 
 resource "aws_instance" "orange" {
-  ami                     = "ami-0ffac3e16de16665e"
+  ami                     = "ami-02a2700d37baeef8b"
   instance_type           = "t2.micro"
   disable_api_termination = false
   key_name                = "nuxt3"

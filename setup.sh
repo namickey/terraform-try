@@ -1,20 +1,36 @@
 #!/bin/bash
 
-echo "Setting up NodeJS Environment"
-curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+echo hello2
 
-echo 'export NVM_DIR="/home/ec2-user/.nvm"' >> /home/ec2-user/.bashrc
-echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm' >> /home/ec2-user/.bashrc
+echo 'su - ec2-user'
+su - ec2-user
 
-# Dot source the files to ensure that variables are available within the current shell
-. /home/ec2-user/.nvm/nvm.sh
-. /home/ec2-user/.bashrc
+echo 'cd /home/ec2-user'
+cd /home/ec2-user
 
-# Install NVM, NPM, Node.JS & Grunt
-nvm alias default 16
-nvm install 16
-nvm use 16
+echo 'pwd'
+pwd
 
-curl -o- -L https://yarnpkg.com/install.sh | bash
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+echo 'sudo yum -y install git'
+sudo yum -y install git
 
+echo 'git clone https://github.com/namickey/nuxt-try.git'
+git clone https://github.com/namickey/nuxt-try.git
+
+echo 'ls -la'
+ls -la
+
+echo 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+echo '. ~/.nvm/nvm.sh'
+. ~/.nvm/nvm.sh
+
+echo 'nvm install --lts'
+nvm install --lts
+
+cd /home/ec2-user/nuxt-try
+
+npm install -y
+
+npm run dev &
