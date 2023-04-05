@@ -5,6 +5,12 @@ echo hello2
 echo 'su - ec2-user'
 su - ec2-user
 
+echo 'whoami'
+whoami
+
+echo 'pwd'
+pwd
+
 echo 'cd /home/ec2-user'
 cd /home/ec2-user
 
@@ -23,8 +29,17 @@ ls -la
 echo 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-echo '. ~/.nvm/nvm.sh'
-. ~/.nvm/nvm.sh
+echo 'su - ec2-user'
+su - ec2-user
+
+echo 'whoami'
+whoami
+
+echo 'cd /home/ec2-user'
+cd /home/ec2-user
+
+echo '. /home/ec2-user/.nvm/nvm.sh'
+. /home/ec2-user/.nvm/nvm.sh
 
 echo 'nvm install --lts'
 nvm install --lts
