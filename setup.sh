@@ -20,32 +20,11 @@ pwd
 echo 'sudo yum -y install git'
 sudo yum -y install git
 
-echo 'git clone https://github.com/namickey/nuxt-try.git'
-git clone https://github.com/namickey/nuxt-try.git
+echo 'sudo -u ec2-user git clone https://github.com/namickey/nuxt-try.git'
+sudo -u ec2-user git clone https://github.com/namickey/nuxt-try.git
 
 echo 'ls -la'
 ls -la
 
-echo 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+sudo -u ec2-user /home/ec2-user/nuxt-try/setup-ec2.sh
 
-echo 'ls -la'
-ls -la
-
-echo 'whoami'
-whoami
-
-echo 'cd /home/ec2-user'
-cd /home/ec2-user
-
-echo '. /home/ec2-user/.nvm/nvm.sh'
-. /home/ec2-user/.nvm/nvm.sh
-
-echo 'nvm install --lts'
-nvm install --lts
-
-cd /home/ec2-user/nuxt-try
-
-npm install -Y
-
-npm run dev &
